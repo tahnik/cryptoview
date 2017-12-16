@@ -40,7 +40,7 @@ function createWindow (URL = '', ID = 0) {
 
   mainWindow[ID].loadURL(URL)
 
-  // mainWindow.webContents.openDevTools()
+  // mainWindow[0].webContents.openDevTools()
 
   mainWindow[ID].on('closed', function () {
     mainWindow[ID] = null
@@ -61,34 +61,25 @@ function createWindow (URL = '', ID = 0) {
       ::-webkit-scrollbar-thumb {
           background: #FF0000;
       }
-    `)
+      .ChartPanel_chart-panel_2l4tM {
+        height: 100% !important;
+        top: 0 !important;
+        bottom: 0 !important;
+        right: 0 !important;
+      }
 
-    mainWindow[ID].webContents.executeJavaScript(`
-      let startTimer = setInterval(function() {
-        let topBar = document.getElementsByClassName("StatusBanner_status-view_2rGRs")[0]
-        if (typeof topBar === 'undefined') {
-          return
-        } else {
-          clearInterval(startTimer)
-        }
-        topBar.parentNode.removeChild(topBar)
+      .Trade_main-content_33i1w {
+        margin-left: 0;
+      }
 
-        let timer = setInterval(function() {
-          let sideBar = document.getElementsByClassName("Sidebar_sidebar_3X-DF")[0]
-          if (typeof sideBar !== 'undefined') {
-            sideBar.parentNode.removeChild(sideBar)
-            document.getElementsByClassName("Trade_main-content_33i1w")[0].style.marginLeft = 0
-            
-            let profile = document.getElementsByClassName("AccountPanel_account-panel_2u2aK")[0]
-            profile.parentNode.removeChild(profile)
-            
-            let userPanel = document.getElementsByClassName("UserPanel_user-panel_W_gry")[0]
-            userPanel.parentNode.removeChild(userPanel)
-            
-            clearInterval(timer)
-          }
-        }, 100)
-      }, 100)
+      .UserPanel_user-panel_W_gry,
+      .AccountPanel_account-panel_2u2aK,
+      .Sidebar_sidebar_3X-DF,
+      .StatusBanner_status-view_2rGRs,
+      .PanelHeader_panel-header_18Etw
+      {
+        display: none !important;
+      }
     `)
   })
 }
