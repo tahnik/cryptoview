@@ -40,8 +40,6 @@ function createWindow (URL = '', ID = 0) {
 
   mainWindow[ID].loadURL(URL)
 
-  console.log(URL)
-
   // mainWindow.webContents.openDevTools()
 
   mainWindow[ID].on('closed', function () {
