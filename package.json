@@ -1,0 +1,28 @@
+{
+  "name": "cryptoview",
+  "version": "1.0.0",
+  "description": "An app that shows multiple crypto currency exchange prices",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "keywords": [
+    "Electron",
+    "Cryptocurrency"
+  ],
+  "build": {
+    "appId": "com.tahnik.cryptoview",
+    "win": {
+      "target": [
+        "portable"
+      ]
+    }
+  },
+  "author": "Tahnik Mustasin",
+  "devDependencies": {
+    "electron": "~1.7.8",
+    "electron-builder": "^19.49.0"
+  }
+}
