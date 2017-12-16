@@ -18,7 +18,8 @@ function createWindow (URL = '', ID = 0) {
   mainWindow[ID] = new BrowserWindow({
     width: customWidth,
     height: customHeight,
-    frame: false
+    frame: false,
+    resizable: false
   })
 
   switch(ID) {
@@ -38,6 +39,8 @@ function createWindow (URL = '', ID = 0) {
 
 
   mainWindow[ID].loadURL(URL)
+
+  console.log(URL)
 
   // mainWindow.webContents.openDevTools()
 
@@ -95,7 +98,7 @@ function createWindow (URL = '', ID = 0) {
 app.on('ready', function() {
   createWindow('https://www.gdax.com/trade/BTC-EUR', 0)
   createWindow('https://www.gdax.com/trade/ETH-EUR', 1)
-  createWindow('https://www.gdax.com/trade/ETC-BTC', 2)
+  createWindow('https://www.gdax.com/trade/ETH-BTC', 2)
   createWindow('https://www.gdax.com/trade/LTC-BTC', 3)
 })
 
@@ -103,8 +106,4 @@ app.on('window-all-closed', function () {
   if (process.platform !== 'darwin') {
     app.quit()
   }
-})
-
-app.on('activate', function () {
-  createWindow()
 })
